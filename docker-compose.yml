@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  bowling:
+    image: node:alpine
+    volumes:
+      - ./:/kata
+    command: 'ash'
+    working_dir: '/kata'
+    stdin_open: true
+    tty: true
