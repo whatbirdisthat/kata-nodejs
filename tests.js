@@ -5,7 +5,7 @@ let theTests = {
 
   CanReportZeroGameAsZeroScore: function() {
     let game = new bowling.Game()
-    assert.Equal(1, game.score())
+    assert.Equal(0, game.score())
   }
 
 }
@@ -13,7 +13,7 @@ let theTests = {
 for (t in theTests) {
   let thisResult = "\u2713 " + t
   try {
-  theTests[t]()
+    theTests[t]()
   } catch (e) {
     thisResult = "\u2717 " + t + ' (' + e + ')'
   }
