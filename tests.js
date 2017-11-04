@@ -17,6 +17,13 @@ let theTests = {
   CanReportOnePinGameAsScoreOfOne: function(game) {
     game.bowl(1)
     assert.Equal(1, game.score())
+  },
+
+  CanReportGameOfOnesAsScoreOfNineteen: function(game) {
+    for (var i = 0; i < 19; i++) {
+      game.bowl(1)
+    }
+    assert.Equal(19, game.score())
   }
 
 }
