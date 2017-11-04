@@ -3,6 +3,16 @@ let testRunner = require("./test-runner.js")
 
 let bowling = require("./bowling.js")
 
+let bowlGame = function(game, bowls) {
+  for (b in bowls) {
+    game.bowl(bowls[b])
+  }
+}
+let blankGame = function(fillWith=0) {
+    return Array.apply(null, Array(20)).map(Number.prototype.valueOf,fillWith);
+}
+
+
 let theTests = {
 
   CanReportZeroGameAsZeroScore: function(game) {
@@ -10,9 +20,8 @@ let theTests = {
   },
 
   CanReportGutterGameAsZeroScore: function(game) {
-    for (var i = 0; i < 20; i++) {
-      game.bowl(0)
-    }
+    let gutterGame = blankGame() 
+    bowlGame(game, gutterGame)
     assert.Equal(0, game.score())
   },
 
@@ -22,9 +31,8 @@ let theTests = {
   },
 
   CanReportGameOfOnesAsScoreOfNineteen: function(game) {
-    for (var i = 0; i < 20; i++) {
-      game.bowl(1)
-    }
+    let gameOfOnes = blankGame(1)
+    bowlGame(game, gameOfOnes)
     assert.Equal(20, game.score())
   },
 
@@ -39,16 +47,20 @@ let theTests = {
   },
 
   CanReportTwoSparesInAFullGame: function(game) {
-
     let bowls = [3,5,4,6,2,7,5,3,1,1,6,1,0,4,0,0,3,6,5,0]
-
     for ( var b in bowls ) {
       game.bowl(bowls[b])
     }
-
-
     assert.Equal(64, game.score())
+  },
+
+  CanReportOneStrikeAndSomeOnePinBowls: function(game) {
+    let bowls = [0,1,10,2,3,5,1,1,1,1,1,1,1,1,1,1,1,1,1]
+    bowlGame(game, bowls)
+    assert.Equal(39, game.score())
   }
+
+
 
 }
 
