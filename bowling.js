@@ -1,12 +1,18 @@
 module.exports = {
   Game: function() {
     return {
-      theScore: 0,
+      bowls:Array.apply(null, Array(21)).map(Number.prototype.valueOf,0),
+      bowlCounter: 0,
       score: function() {
-        return this.theScore
+        var theScore = 0
+        for (b in this.bowls) {
+          theScore += this.bowls[b]
+        }
+        return theScore
       },
       bowl: function(pins) {
-        this.theScore += pins
+        this.bowls[this.bowlCounter] = parseInt(pins)
+        this.bowlCounter++
       }
     }
   }
