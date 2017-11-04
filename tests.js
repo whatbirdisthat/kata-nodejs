@@ -5,23 +5,20 @@ let bowling = require("./bowling.js")
 
 let theTests = {
 
-  CanReportZeroGameAsZeroScore: function() {
-    let game = new bowling.Game()
+  CanReportZeroGameAsZeroScore: function(game) {
     assert.Equal(0, game.score())
   },
 
-  CanReportGutterGameAsZeroScore: function() {
-    let game = new bowling.Game()
+  CanReportGutterGameAsZeroScore: function(game) {
     game.bowl(0)
     assert.Equal(0, game.score())
   },
 
-  CanReportOnePinGameAsScoreOfOne: function() {
-    let game = new bowling.Game()
+  CanReportOnePinGameAsScoreOfOne: function(game) {
     game.bowl(1)
     assert.Equal(1, game.score())
   }
 
 }
 
-testRunner.RunTests(theTests)
+testRunner.RunTests(theTests, function() { return new bowling.Game() })

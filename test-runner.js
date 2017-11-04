@@ -1,6 +1,6 @@
 module.exports = {
 
-  RunTests: function(theTests) {
+  RunTests: function(theTests, setupFunc) {
     for (t in theTests) {
       let Reset = "\x1b[0m"
       let FgGreen = "\x1b[32m"
@@ -8,7 +8,8 @@ module.exports = {
 
       let thisResult = FgGreen + "\u2713 " + Reset + t
       try {
-        theTests[t]()
+        let ObjectUnderTest = setupFunc()
+        theTests[t](ObjectUnderTest)
       } catch (e) {
         thisResult = FgRed + "\u2717 " + Reset + t + ' (' + e + ')'
       }
