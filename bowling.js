@@ -1,3 +1,8 @@
+function isSpare(bowlIndex, bowls) {
+  return bowlIndex > 0 && bowls[bowlIndex] + bowls[bowlIndex-1] == 10
+}
+
+
 module.exports = {
   Game: function() {
     return {
@@ -8,12 +13,11 @@ module.exports = {
 
         for (var b = 0; b < this.bowls.length; b++) {
 
-
-          if (b > 0 && this.bowls[b] +  this.bowls[b-1] == 10) {
+          if (isSpare(b, this.bowls)) {
             theScore += this.bowls[b+1]
           }
 
-theScore += this.bowls[b]
+          theScore += this.bowls[b]
 
         }
 
