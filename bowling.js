@@ -13,7 +13,9 @@ module.exports = {
 
         for (var b = 0; b < this.bowls.length; b++) {
 
-          if (isSpare(b, this.bowls)) {
+          if (this.bowls[b] == 10) {
+            theScore += this.bowls[b+1] + this.bowls[b+2]
+          } else if (isSpare(b, this.bowls)) {
             theScore += this.bowls[b+1]
           }
 
