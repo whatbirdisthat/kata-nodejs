@@ -10,7 +10,9 @@ let theTests = {
   },
 
   CanReportGutterGameAsZeroScore: function(game) {
-    game.bowl(0)
+    for (var i = 0; i < 20; i++) {
+      game.bowl(0)
+    }
     assert.Equal(0, game.score())
   },
 
@@ -20,10 +22,20 @@ let theTests = {
   },
 
   CanReportGameOfOnesAsScoreOfNineteen: function(game) {
-    for (var i = 0; i < 19; i++) {
+    for (var i = 0; i < 20; i++) {
       game.bowl(1)
     }
-    assert.Equal(19, game.score())
+    assert.Equal(20, game.score())
+  },
+
+  CanReportASpare: function(game) {
+    game.bowl(6)
+    game.bowl(4)
+    game.bowl(3)
+    for (var i = 0; i < 17; i++) {
+      game.bowl(0)
+    }
+    assert.Equal(16, game.score())
   }
 
 }
