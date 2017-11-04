@@ -11,14 +11,16 @@ module.exports = {
 
     for (t in theTests) {
 
-      let thisResult = FgGreen + TickMark + " " + Reset + t
+      let testName = t.split(/(?=[A-Z])/).join(" ")
+
+      let thisResult = FgGreen + TickMark + " " + Reset + testName
       try {
 
         let ObjectUnderTest = setupFunc()
         theTests[t](ObjectUnderTest)
 
       } catch (e) {
-        thisResult = FgRed + CrossMark + " " + Reset + t + ' (' + e + ')'
+        thisResult = FgRed + CrossMark + " " + Reset + testName + ' (' + e + ')'
       }
 
       console.log(thisResult)
