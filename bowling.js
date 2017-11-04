@@ -1,10 +1,12 @@
 module.exports = {
   Game: function() {
     return {
+      theScore: 0,
       score: function() {
-        return 0
+        return this.theScore
       },
-      bowl: function() {
+      bowl: function(pins) {
+        this.theScore += pins
       }
     }
   }

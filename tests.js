@@ -14,6 +14,12 @@ let theTests = {
     let game = new bowling.Game()
     game.bowl(0)
     assert.Equal(0, game.score())
+  },
+
+  CanReportOnePinGameAsScoreOfOne: function() {
+    let game = new bowling.Game()
+    game.bowl(1)
+    assert.Equal(1, game.score())
   }
 
 }
