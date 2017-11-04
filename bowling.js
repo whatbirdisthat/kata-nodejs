@@ -5,9 +5,13 @@ module.exports = {
       bowlCounter: 0,
       score: function() {
         var theScore = 0
-        for (b in this.bowls) {
-          theScore += this.bowls[b]
+
+        for (var b = 0; b < this.bowls.length; b++) {
+
+theScore += this.bowls[b]
+
         }
+
         return theScore
       },
       bowl: function(pins) {
