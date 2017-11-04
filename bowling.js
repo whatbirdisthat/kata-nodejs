@@ -3,6 +3,8 @@ module.exports = {
     return {
       score: function() {
         return 0
+      },
+      bowl: function() {
       }
     }
   }
