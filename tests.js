@@ -36,6 +36,18 @@ let theTests = {
       game.bowl(0)
     }
     assert.Equal(16, game.score())
+  },
+
+  CanReportTwoSparesInAFullGame: function(game) {
+
+    let bowls = [3,5,4,6,2,7,5,3,1,1,6,1,0,4,0,0,3,6,5,0]
+
+    for ( var b in bowls ) {
+      game.bowl(bowls[b])
+    }
+
+
+    assert.Equal(64, game.score())
   }
 
 }
