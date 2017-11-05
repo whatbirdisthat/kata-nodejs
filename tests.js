@@ -58,6 +58,12 @@ let theTests = {
     let bowls = [0,1,10,2,3,5,1,1,1,1,1,1,1,1,1,1,1,1,1]
     bowlGame(game, bowls)
     assert.Equal(39, game.score())
+  },
+
+  CanReportAPerfectGameAsThreeHundred: function(game) {
+    let bowls = [10,10,10,10,10,10,10,10,10,10,10,10]
+    bowlGame(game, bowls)
+    assert.Equal(300, game.score())
   }
 
 

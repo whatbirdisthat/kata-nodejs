@@ -1,6 +1,9 @@
 function isSpare(bowlIndex, bowls) {
   return bowlIndex > 0 && bowls[bowlIndex] + bowls[bowlIndex-1] == 10
 }
+function isStrike(bowlIndex, bowls) {
+  return bowls[bowlIndex] == 10 && bowlIndex < 9
+}
 
 
 module.exports = {
@@ -13,13 +16,16 @@ module.exports = {
 
         for (var b = 0; b < this.bowls.length; b++) {
 
-          if (this.bowls[b] == 10) {
-            theScore += this.bowls[b+1] + this.bowls[b+2]
+          if (isStrike(b, this.bowls)) {
+            let strikeBonus = this.bowls[b] + this.bowls[b+1] + this.bowls[b+2]
+            theScore += strikeBonus
           } else if (isSpare(b, this.bowls)) {
-            theScore += this.bowls[b+1]
+            spareBonus = this.bowls[b] + this.bowls[b+1]
+            theScore += spareBonus
+          } else {
+            theScore += this.bowls[b]
           }
 
-          theScore += this.bowls[b]
 
         }
 
