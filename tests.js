@@ -30,7 +30,7 @@ let theTests = {
     assert.Equal(1, game.score())
   },
 
-  CanReportGameOfOnesAsScoreOfNineteen: function(game) {
+  CanReportGameOfOnesAsScoreOfTwenty: function(game) {
     let gameOfOnes = blankGame(1)
     bowlGame(game, gameOfOnes)
     assert.Equal(20, game.score())
