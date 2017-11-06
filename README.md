@@ -15,4 +15,6 @@ What? So how do you do your unit tests?
 
 Run with `docker-compose run bowling`
 
+Once you're in the shell, use `node tests.js` to run the tests.
+
 :)
